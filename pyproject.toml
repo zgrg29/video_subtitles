@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qwen-subtitle"
+version = "0.1.0"
+description = "Apple-inspired desktop subtitle studio powered by Qwen ASR and Qwen-MT."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Qwen Subtitle contributors" },
+]
+keywords = ["subtitles", "qwen", "asr", "translation", "desktop", "pyside6"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Win32 (MS Windows)",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+  "PySide6>=6.7,<7",
+  "requests>=2.32,<3",
+  "imageio-ffmpeg>=0.5,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "pytest-qt>=4.4,<5",
+  "ruff>=0.8",
+  "pyinstaller>=6.10",
+]
+
+[project.scripts]
+qwen-subtitle = "qwen_subtitle.app:main"
+
+[project.urls]
+# Intentionally omitted until the public repository URL is approved.
+# Do not add a personal homepage or contact address here.
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+qwen_subtitle = ["resources/icons/*.svg"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]

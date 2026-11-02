@@ -1,0 +1,61 @@
+# Secrets and local credentials — never commit
+.env
+.env.*
+!.env.example
+secrets.bin
+*.key
+*.pem
+*.p12
+*.pfx
+settings.json
+app.log
+
+# Local runtime / dependencies
+.deps/
+.venv/
+venv/
+.tmp/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# Build artefacts
+build/
+dist/
+*.spec
+*.manifest
+
+# User media and generated subtitles
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.m4v
+*.flv
+*.wmv
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.srt
+*.ass
+*.vtt
+outputs/
+samples/private/
+docs/private/
+.qwen-subtitle-data/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
